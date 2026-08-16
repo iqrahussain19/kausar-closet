@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- Google Analytics 4: paste Measurement ID in js/analytics.js -->
+    <script src="js/analytics.js"></script>
+    <title>Kausar Closet | Pakistani Women's Fashion</title>
+    <meta
+      name="description"
+      content="Kausar Closet — luxury stitched and unstitched women's wear from Pakistan. Elegant, modern, and made for every season."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600&family=Poppins:wght@300;400;500;600&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="css/styles.css" />
+  </head>
+  <body>
+    <header class="site-header">
+      <nav class="navbar" aria-label="Primary">
+        <a class="logo" href="index.html" aria-label="Kausar Closet home">
+          <img class="logo-img" src="images/logo.png" alt="Kausar Closet" />
+          <span class="logo-text">Kausar <em>Closet</em></span>
+        </a>
+        <ul class="nav-links" data-nav>
+          <li><a href="index.html" aria-current="page">Home</a></li>
+          <li class="nav-item has-dropdown">
+            <a href="shop.html" class="nav-parent" data-dropdown-toggle aria-haspopup="true" aria-expanded="false">Shop</a>
+            <ul class="nav-dropdown" data-dropdown>
+              <li><a href="shop.html?category=stitched">Stitched</a></li>
+              <li><a href="shop.html?category=unstitched">Unstitched</a></li>
+            </ul>
+          </li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+        <div class="nav-actions">
+          <a class="icon-btn" href="cart.html" aria-label="Shopping bag">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7">
+              <path d="M6 7h12l-1 13H7L6 7z" />
+              <path d="M9 7a3 3 0 0 1 6 0" />
+            </svg>
+            <span class="cart-count" data-cart-count>0</span>
+          </a>
+          <button class="nav-toggle" type="button" data-nav-toggle aria-label="Open menu" aria-expanded="false">
+            <span></span><span></span><span></span>
+          </button>
+        </div>
+      </nav>
+    </header>
+
+    <main>
+      <section class="hero">
+        <div class="hero-media">
+          <img
+            src="https://images.unsplash.com/photo-1469334031218-e382a71b716b?w=1800&q=80"
+            alt="Premium fashion look from Kausar Closet"
+          />
+        </div>
+        <div class="hero-content">
+          <p class="hero-brand">Kausar Closet</p>
+          <h2>Style that speaks, quality that lasts</h2>
+          <p>Luxury stitched &amp; unstitched wear — soft fabrics, gold-kissed detail, made for every Pakistani season.</p>
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="shop.html">Shop the closet</a>
+            <a class="btn btn-outline" href="shop.html?category=stitched">Stitched</a>
+            <a class="btn btn-outline" href="shop.html?category=unstitched">Unstitched</a>
+          </div>
+        </div>
+      </section>
+
+      <div class="ticker" aria-hidden="true">
+        <div class="ticker-track">
+          <span>Stitched</span><span>•</span><span>Unstitched</span><span>•</span><span>Summer Lawn</span><span>•</span
+          ><span>Winter Velvet</span><span>•</span><span>Premium Fabrics</span><span>•</span><span>Nationwide Delivery</span
+          ><span>•</span><span>Kausar Closet</span><span>•</span> <span>Stitched</span><span>•</span><span>Unstitched</span
+          ><span>•</span><span>Summer Lawn</span><span>•</span><span>Winter Velvet</span><span>•</span><span>Premium Fabrics</span
+          ><span>•</span><span>Nationwide Delivery</span><span>•</span><span>Kausar Closet</span><span>•</span>
+        </div>
+      </div>
+
+      <section class="section section-tight">
+        <div class="container section-head-row reveal">
+          <div>
+            <p class="eyebrow">Curated edits</p>
+            <h2>Shop by category</h2>
+          </div>
+          <a class="text-link" href="shop.html">View all pieces</a>
+        </div>
+        <div class="categories categories-home" data-categories></div>
+      </section>
+
+      <section class="editorial">
+        <a class="editorial-panel reveal" href="shop.html?category=stitched">
+          <img
+            src="https://images.unsplash.com/photo-1515372039744-b8f02a3ae446?w=1200&q=80"
+            alt="Stitched collection"
+          />
+          <div class="editorial-copy">
+            <p class="eyebrow">Ready to wear</p>
+            <h2>Stitched</h2>
+            <span class="editorial-link">Explore now</span>
+          </div>
+        </a>
+        <a class="editorial-panel reveal" href="shop.html?category=unstitched">
+          <img
+            src="https://images.unsplash.com/photo-1558171813-4c088a52075f?w=1200&q=80"
+            alt="Unstitched collection"
+          />
+          <div class="editorial-copy">
+            <p class="eyebrow">Made for your tailor</p>
+            <h2>Unstitched</h2>
+            <span class="editorial-link">Explore now</span>
+          </div>
+        </a>
+      </section>
+
+      <section class="section section-tight">
+        <div class="container">
+          <div class="section-head-row reveal">
+            <div>
+              <p class="eyebrow">New &amp; loved</p>
+              <h2>Closet favorites</h2>
+            </div>
+            <a class="text-link" href="shop.html">Shop all</a>
+          </div>
+          <div class="products products-home" data-featured-products></div>
+        </div>
+      </section>
+
+      <section class="lookbook">
+        <div class="container lookbook-head reveal">
+          <p class="eyebrow">The lookbook</p>
+          <h2>Soft luxury, in every frame</h2>
+        </div>
+        <div class="lookbook-grid">
+          <a class="lookbook-item tall reveal" href="shop.html?season=summer">
+            <img src="https://images.unsplash.com/photo-1490481651871-ab68de25d43d?w=1000&q=80" alt="Summer edit" />
+            <span>Summer edit</span>
+          </a>
+          <a class="lookbook-item reveal" href="shop.html?season=winter">
+            <img src="https://images.unsplash.com/photo-1487222477894-8943e31ffb20?w=900&q=80" alt="Winter edit" />
+            <span>Winter edit</span>
+          </a>
+          <a class="lookbook-item reveal" href="shop.html?category=stitched">
+            <img src="https://images.unsplash.com/photo-1524504388940-b1c1722653e1?w=900&q=80" alt="Evening glow" />
+            <span>Evening glow</span>
+          </a>
+          <a class="lookbook-item wide reveal" href="shop.html">
+            <img src="https://images.unsplash.com/photo-1483985988355-763728e1935b?w=1400&q=80" alt="Everyday pretty" />
+            <span>Everyday pretty</span>
+          </a>
+        </div>
+      </section>
+
+      <section class="promo promo-rich">
+        <div class="promo-media">
+          <img
+            src="https://images.unsplash.com/photo-1539109136881-3be0616acf24?w=1400&q=80"
+            alt="Winter sale collection"
+          />
+        </div>
+        <div class="promo-inner reveal">
+          <p class="eyebrow">Limited offer</p>
+          <h2>Winter edit — up to 20% off</h2>
+          <p>Layered textures and festive tones, curated for the season’s celebrations.</p>
+          <a class="btn btn-outline" href="shop.html?season=winter">Shop the sale</a>
+        </div>
+      </section>
+
+      <section class="section section-tight promise">
+        <div class="container">
+          <div class="promise-grid">
+            <article class="promise-item reveal">
+              <h3>Premium fabrics</h3>
+              <p>Lawn, silk, chiffon &amp; velvet chosen for drape and lasting color.</p>
+            </article>
+            <article class="promise-item reveal">
+              <h3>Nationwide delivery</h3>
+              <p>Soft packaging and reliable shipping across Pakistan.</p>
+            </article>
+            <article class="promise-item reveal">
+              <h3>Easy WhatsApp order</h3>
+              <p>Chat with us anytime for sizing help and quick orders.</p>
+            </article>
+            <article class="promise-item reveal">
+              <h3>Style that lasts</h3>
+              <p>Pieces designed to feel special now — and stay in your closet.</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="cta-band">
+        <div class="container cta-band-inner reveal">
+          <div>
+            <p class="eyebrow">Need help choosing?</p>
+            <h2>Talk to Kausar Closet</h2>
+            <p>Call, email, or WhatsApp — we’ll help you find your perfect piece.</p>
+          </div>
+          <div class="cta-band-actions">
+            <a class="btn btn-primary" href="https://wa.me/923218581875" target="_blank" rel="noopener noreferrer">WhatsApp us</a>
+            <a class="btn btn-ghost-light" href="tel:03218581875">03218581875</a>
+            <a class="btn btn-ghost-light" href="mailto:kausarcloset343@gmail.com">Email</a>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container footer-grid">
+        <div>
+          <a class="logo logo-footer" href="index.html" aria-label="Kausar Closet home">
+            <img class="logo-img" src="images/logo.png" alt="Kausar Closet" />
+          </a>
+          <p>A soft Pakistani women’s closet — elegant, modern, and made for everyday pretty.</p>
+          <p class="footer-tagline">Style that speaks, Quality that lasts.</p>
+          <ul class="footer-contact">
+            <li><a href="tel:03218581875">03218581875</a></li>
+            <li><a href="mailto:kausarcloset343@gmail.com">kausarcloset343@gmail.com</a></li>
+            <li><a href="https://wa.me/923218581875" target="_blank" rel="noopener noreferrer">Chat on WhatsApp</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h3>Shop</h3>
+          <ul>
+            <li><a href="shop.html">All products</a></li>
+            <li><a href="shop.html?category=stitched">Stitched</a></li>
+            <li><a href="shop.html?category=unstitched">Unstitched</a></li>
+            <li><a href="shop.html?season=summer">Summer</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h3>Help</h3>
+          <ul>
+            <li><a href="contact.html">Contact</a></li>
+            <li><a href="about.html">About us</a></li>
+            <li><a href="cart.html">Your bag</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h3>Follow</h3>
+          <ul class="social-links">
+            <li>
+              <a
+                href="https://www.instagram.com/kausar_closet"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Instagram"
+                >Instagram</a
+              >
+            </li>
+            <li>
+              <a
+                href="https://www.facebook.com/share/1J52Gzczg1/?mibextid=wwXIfr"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Facebook"
+                >Facebook</a
+              >
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="container footer-bottom">
+        <p>© <span data-year></span> Kausar Closet. All rights reserved.</p>
+        <p>Made with love for kausarcloset.pk</p>
+      </div>
+    </footer>
+
+    <script src="js/data.js?v=8"></script>
+    <script src="js/cart.js?v=8"></script>
+    <script src="js/main.js?v=8"></script>
+    <a
+      class="whatsapp-float"
+      href="https://wa.me/923218581875?text=Hi%20Kausar%20Closet%2C%20I%20have%20a%20question"
+      target="_blank"
+      rel="noopener noreferrer"
+      aria-label="Chat on WhatsApp"
+    >
+      <svg viewBox="0 0 32 32" aria-hidden="true">
+        <path
+          fill="currentColor"
+          d="M19.11 17.43c-.28-.14-1.64-.81-1.9-.90-.25-.1-.44-.14-.63.14-.18.27-.72.9-.88 1.08-.16.18-.33.2-.6.07-.28-.14-1.16-.43-2.21-1.36-.82-.73-1.37-1.63-1.53-1.9-.16-.28-.02-.43.12-.57.12-.12.28-.33.41-.49.14-.16.18-.28.28-.46.09-.18.05-.35-.02-.49-.07-.14-.63-1.51-.86-2.07-.23-.55-.46-.47-.63-.48h-.54c-.18 0-.49.07-.74.35-.25.28-.97.95-.97 2.31s.99 2.68 1.13 2.86c.14.18 1.95 2.98 4.72 4.18 1.76.76 2.36.76 3.2.64.5-.07 1.64-.67 1.87-1.32.23-.65.23-1.2.16-1.32-.07-.11-.25-.18-.53-.32z"
+        />
+        <path
+          fill="currentColor"
+          d="M16.02 3C9.4 3 4.02 8.37 4.02 15c0 2.2.6 4.25 1.64 6.03L4 29l8.17-1.6A11.9 11.9 0 0 0 16.02 27C22.65 27 28 21.63 28 15S22.65 3 16.02 3zm0 21.82c-1.95 0-3.76-.56-5.3-1.53l-.38-.23-4.85.95 1-4.72-.25-.4A9.76 9.76 0 0 1 6.2 15c0-5.42 4.4-9.82 9.82-9.82s9.82 4.4 9.82 9.82-4.4 9.82-9.82 9.82z"
+        />
+      </svg>
+      <span>WhatsApp</span>
+    </a>
+  </body>
+</html>

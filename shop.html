@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- Google Analytics 4: paste Measurement ID in js/analytics.js -->
+    <script src="js/analytics.js"></script>
+    <title>Shop | Kausar Closet</title>
+    <meta name="description" content="Shop stitched and unstitched women's wear from Kausar Closet." />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600&family=Poppins:wght@300;400;500;600&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="css/styles.css" />
+  </head>
+  <body>
+    <header class="site-header">
+      <nav class="navbar" aria-label="Primary">
+        <a class="logo" href="index.html" aria-label="Kausar Closet home">
+          <img class="logo-img" src="images/logo.png" alt="Kausar Closet" />
+          <span class="logo-text">Kausar <em>Closet</em></span>
+        </a>
+        <ul class="nav-links" data-nav>
+          <li><a href="index.html">Home</a></li>
+          <li class="nav-item has-dropdown">
+            <a href="shop.html" class="nav-parent" data-dropdown-toggle aria-haspopup="true" aria-expanded="false" aria-current="page">Shop</a>
+            <ul class="nav-dropdown" data-dropdown>
+              <li><a href="shop.html?category=stitched">Stitched</a></li>
+              <li><a href="shop.html?category=unstitched">Unstitched</a></li>
+            </ul>
+          </li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+        <div class="nav-actions">
+          <a class="icon-btn" href="cart.html" aria-label="Shopping bag">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7">
+              <path d="M6 7h12l-1 13H7L6 7z" />
+              <path d="M9 7a3 3 0 0 1 6 0" />
+            </svg>
+            <span class="cart-count" data-cart-count>0</span>
+          </a>
+          <button class="nav-toggle" type="button" data-nav-toggle aria-label="Open menu" aria-expanded="false">
+            <span></span><span></span><span></span>
+          </button>
+        </div>
+      </nav>
+    </header>
+
+    <main>
+      <section class="page-hero page-hero-shop">
+        <div class="container">
+          <p class="eyebrow">Shop</p>
+          <h1>The closet</h1>
+          <p>Filter by season, fabric, and silhouette — every piece chosen to feel soft, pretty, and wearable.</p>
+        </div>
+      </section>
+
+      <div class="shop-chips container" aria-label="Quick filters">
+        <a class="shop-chip" href="shop.html">All</a>
+        <a class="shop-chip" href="shop.html?category=stitched">Stitched</a>
+        <a class="shop-chip" href="shop.html?category=unstitched">Unstitched</a>
+        <a class="shop-chip" href="shop.html?season=summer">Summer</a>
+        <a class="shop-chip" href="shop.html?season=winter">Winter</a>
+        <a class="shop-chip" href="shop.html?category=stitched">Sale</a>
+      </div>
+
+      <section class="section section-shop">
+        <div class="container">
+          <div class="shop-toolbar">
+            <div class="field">
+              <label for="search">Search</label>
+              <input id="search" type="search" placeholder="Search lawn, silk, velvet…" data-search />
+            </div>
+            <div class="field">
+              <label for="category">Category</label>
+              <select id="category" data-filter-category>
+                <option value="all">All</option>
+                <option value="stitched">Stitched</option>
+                <option value="unstitched">Unstitched</option>
+                <option value="summer">Summer</option>
+                <option value="winter">Winter</option>
+              </select>
+            </div>
+            <div class="field">
+              <label for="season">Season</label>
+              <select id="season" data-filter-season>
+                <option value="all">All seasons</option>
+                <option value="summer">Summer</option>
+                <option value="winter">Winter</option>
+              </select>
+            </div>
+            <div class="field">
+              <label for="sort">Sort by</label>
+              <select id="sort" data-sort>
+                <option value="latest">Latest</option>
+                <option value="bestselling">Best selling</option>
+                <option value="price-asc">Price: low to high</option>
+                <option value="price-desc">Price: high to low</option>
+              </select>
+            </div>
+            <p class="result-count" data-result-count>0 pieces</p>
+          </div>
+          <div class="products products-shop" data-shop-grid></div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container footer-grid">
+        <div>
+          <a class="logo logo-footer" href="index.html" aria-label="Kausar Closet home">
+            <img class="logo-img" src="images/logo.png" alt="Kausar Closet" />
+          </a>
+          <p>A soft Pakistani women’s closet — elegant, modern, and made for everyday pretty.</p>
+          <p class="footer-tagline">Style that speaks, Quality that lasts.</p>
+          <ul class="footer-contact">
+            <li><a href="tel:03218581875">03218581875</a></li>
+            <li><a href="mailto:kausarcloset343@gmail.com">kausarcloset343@gmail.com</a></li>
+            <li><a href="https://wa.me/923218581875" target="_blank" rel="noopener noreferrer">Chat on WhatsApp</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h3>Shop</h3>
+          <ul>
+            <li><a href="shop.html">All products</a></li>
+            <li><a href="shop.html?category=stitched">Stitched</a></li>
+            <li><a href="shop.html?category=unstitched">Unstitched</a></li>
+            <li><a href="shop.html?season=winter">Winter</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h3>Help</h3>
+          <ul>
+            <li><a href="contact.html">Contact</a></li>
+            <li><a href="about.html">About us</a></li>
+            <li><a href="cart.html">Your bag</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h3>Follow</h3>
+          <ul class="social-links">
+            <li>
+              <a
+                href="https://www.instagram.com/kausar_closet"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Instagram"
+                >Instagram</a
+              >
+            </li>
+            <li>
+              <a
+                href="https://www.facebook.com/share/1J52Gzczg1/?mibextid=wwXIfr"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Facebook"
+                >Facebook</a
+              >
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="container footer-bottom">
+        <p>© <span data-year></span> Kausar Closet. All rights reserved.</p>
+        <p>Made with love for kausarcloset.pk</p>
+      </div>
+    </footer>
+
+    <script src="js/data.js?v=8"></script>
+    <script src="js/cart.js?v=8"></script>
+    <script src="js/main.js?v=8"></script>
+    <script src="js/shop.js?v=8"></script>
+    <a
+      class="whatsapp-float"
+      href="https://wa.me/923218581875?text=Hi%20Kausar%20Closet%2C%20I%20have%20a%20question"
+      target="_blank"
+      rel="noopener noreferrer"
+      aria-label="Chat on WhatsApp"
+    >
+      <svg viewBox="0 0 32 32" aria-hidden="true">
+        <path
+          fill="currentColor"
+          d="M19.11 17.43c-.28-.14-1.64-.81-1.9-.9-.25-.1-.44-.14-.63.14-.18.27-.72.9-.88 1.08-.16.18-.33.2-.6.07-.28-.14-1.16-.43-2.21-1.36-.82-.73-1.37-1.63-1.53-1.9-.16-.28-.02-.43.12-.57.12-.12.28-.33.41-.49.14-.16.18-.28.28-.46.09-.18.05-.35-.02-.49-.07-.14-.63-1.51-.86-2.07-.23-.55-.46-.47-.63-.48h-.54c-.18 0-.49.07-.74.35-.25.28-.97.95-.97 2.31s.99 2.68 1.13 2.86c.14.18 1.95 2.98 4.72 4.18 1.76.76 2.36.76 3.2.64.5-.07 1.64-.67 1.87-1.32.23-.65.23-1.2.16-1.32-.07-.11-.25-.18-.53-.32z"
+        />
+        <path
+          fill="currentColor"
+          d="M16.02 3C9.4 3 4.02 8.37 4.02 15c0 2.2.6 4.25 1.64 6.03L4 29l8.17-1.6A11.9 11.9 0 0 0 16.02 27C22.65 27 28 21.63 28 15S22.65 3 16.02 3zm0 21.82c-1.95 0-3.76-.56-5.3-1.53l-.38-.23-4.85.95 1-4.72-.25-.4A9.76 9.76 0 0 1 6.2 15c0-5.42 4.4-9.82 9.82-9.82s9.82 4.4 9.82 9.82-4.4 9.82-9.82 9.82z"
+        />
+      </svg>
+      <span>WhatsApp</span>
+    </a>
+  </body>
+</html>
