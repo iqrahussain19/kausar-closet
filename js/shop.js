@@ -77,4 +77,8 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
   applyFilters();
+
+  if (typeof seoApplyShopPage === "function") {
+    seoApplyShopPage(PRODUCTS);
+  }
 });

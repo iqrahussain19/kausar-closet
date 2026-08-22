@@ -175,7 +175,7 @@ function createProductCard(product) {
   return `
     <article class="product-card reveal">
       <a class="product-media" href="product.html?id=${product.id}">
-        <img class="product-img primary" src="${product.image}" alt="${product.name}" loading="lazy" />
+        <img class="product-img primary" src="${product.image}" alt="${product.name} — Pakistani women's dress by Kausar Closet" loading="lazy" />
         <img class="product-img secondary" src="${product.hoverImage}" alt="" loading="lazy" />
         ${product.badge ? `<span class="product-badge">${product.badge}</span>` : ""}
         ${discount ? `<span class="product-discount">-${discount}%</span>` : ""}
@@ -218,18 +218,21 @@ function renderProductPage() {
   const params = new URLSearchParams(window.location.search);
   const product = getProductById(params.get("id")) || PRODUCTS[0];
 
-  document.title = `${product.name} | Kausar Closet`;
-
+  if (typeof seoApplyProductPage === "function") {
+    seoApplyProductPage(product);
+  } else {
+    document.title = `${product.name} | Kausar Closet`;
+  }
 
   root.innerHTML = `
     <div class="product-gallery">
-      <img src="${product.image}" alt="${product.name}" id="product-main-image" />
+      <img src="${product.image}" alt="${product.name} — Kausar Closet" id="product-main-image" />
       <div class="product-thumbs">
         <button type="button" class="is-active" data-thumb="${product.image}">
-          <img src="${product.image}" alt="" />
+          <img src="${product.image}" alt="${product.name} front view" />
         </button>
         <button type="button" data-thumb="${product.hoverImage}">
-          <img src="${product.hoverImage}" alt="" />
+          <img src="${product.hoverImage}" alt="${product.name} alternate view" />
         </button>
       </div>
     </div>
