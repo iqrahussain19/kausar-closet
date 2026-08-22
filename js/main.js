@@ -3,7 +3,7 @@ document.addEventListener("DOMContentLoaded", () => {
   initMobileChrome();
   updateCartCount();
   renderHomeCollections();
-  renderProductGrid("[data-featured-products]", PRODUCTS.slice(0, 8));
+  renderProductGrid("[data-featured-products]", PRODUCTS);
   renderProductPage();
   renderCartPage();
   initContactForm();
