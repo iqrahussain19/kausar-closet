@@ -1,3 +1,4 @@
+/** Listing placeholders — keep these PNGs in shop/home thumbnails */
 const IMG = {
   dress01: "images/dresses/openart-gpt-image-2-edit-1_1781247168605_93f8f8d8-4ba07b5d-21bb-4611-be1c-ada21c6b756f.png",
   dress02: "images/dresses/openart-gpt-image-2-edit-1_1781247405779_ece7c809-76edd102-9fc7-47de-b221-4cb760f523ff.png",
@@ -7,6 +8,13 @@ const IMG = {
   dress06: "images/dresses/ChatGPT_Image_Jun_12__2026__12_21_53_PM-acbcbb9b-b437-4c44-b190-1f8b310de6d7.png",
   dress07: "images/dresses/Gemini_Generated_Image_ppmfowppmfowppmf-2f299308-337a-46da-9046-ed47f07273a7.png",
 };
+
+/** Actual product photos for detail-page gallery only: images/dresses/kc-01/01.jpg … */
+function dressGallery(productId, imageCount) {
+  return Array.from({ length: imageCount }, (_, i) =>
+    `images/dresses/${productId}/${String(i + 1).padStart(2, "0")}.jpg`
+  );
+}
 
 const PRODUCTS = [
   {
@@ -18,13 +26,19 @@ const PRODUCTS = [
     season: "summer",
     fabric: "Lawn",
     colors: ["Teal"],
-    sizes: ["S", "M"],
+    sizes: ["M", "L"],
     rating: 4.9,
     badge: "New",
     image: IMG.dress01,
     hoverImage: IMG.dress01,
+    images: [
+      "images/dresses/kc-01/02.jpg",
+      "images/dresses/kc-01/03.jpg",
+      "images/dresses/kc-01/04.jpg",
+      "images/dresses/kc-01/05.jpg",
+    ],
     description:
-      "Digital printed premium lawn 3-piece suit with lace and pearl embellished neckline, floral placement design, chiffon dupatta, and straight trouser. Available in Small and Medium.",
+      "Digital printed premium lawn 3-piece suit with lace and pearl embellished neckline, floral placement design, chiffon dupatta, and straight trouser. Available in Medium and Large.",
   },
   {
     id: "kc-02",
@@ -35,13 +49,18 @@ const PRODUCTS = [
     season: "summer",
     fabric: "Cotton Blend",
     colors: ["Purple", "White"],
-    sizes: ["S", "M"],
+    sizes: ["M", "L"],
     rating: 4.8,
     badge: "New",
     image: IMG.dress02,
     hoverImage: IMG.dress02,
+    images: [
+      "images/dresses/kc-02/02.jpg",
+      "images/dresses/kc-02/03.jpg",
+      "images/dresses/kc-02/04.jpg",
+    ],
     description:
-      "Elegant deep purple kameez with white floral embroidery, matching trousers, and a sheer white dupatta with lace borders. Available in Small and Medium.",
+      "Elegant deep purple kameez with white floral embroidery, matching trousers, and a sheer white dupatta with lace borders. Available in Medium and Large.",
   },
   {
     id: "kc-03",
@@ -52,13 +71,20 @@ const PRODUCTS = [
     season: "summer",
     fabric: "Lawn",
     colors: ["Ivory", "Blush Pink"],
-    sizes: ["S", "M"],
+    sizes: ["M", "L"],
     rating: 4.9,
     badge: "Bestseller",
     image: IMG.dress03,
     hoverImage: IMG.dress03,
+    images: [
+      "images/dresses/kc-03/02.jpg",
+      "images/dresses/kc-03/03.jpg",
+      "images/dresses/kc-03/04.jpg",
+      "images/dresses/kc-03/05.jpg",
+      "images/dresses/kc-03/06.jpg",
+    ],
     description:
-      "White lawn kameez with rose bouquet prints, soft pink trousers, and a pure white chiffon dupatta. Delicate lace trim and pearl button detailing. Available in Small and Medium.",
+      "White lawn kameez with rose bouquet prints, soft pink trousers, and a pure white chiffon dupatta. Delicate lace trim and pearl button detailing. Available in Medium and Large.",
   },
   {
     id: "kc-04",
@@ -69,13 +95,19 @@ const PRODUCTS = [
     season: "summer",
     fabric: "Premium Fabric",
     colors: ["Royal Blue", "Silver"],
-    sizes: ["S", "M"],
+    sizes: ["M", "L"],
     rating: 4.8,
     badge: "Bestseller",
     image: IMG.dress04,
     hoverImage: IMG.dress04,
+    images: [
+      "images/dresses/kc-04/02.jpg",
+      "images/dresses/kc-04/03.jpg",
+      "images/dresses/kc-04/04.jpg",
+      "images/dresses/kc-04/05.jpg",
+    ],
     description:
-      "Vibrant royal blue 3-piece suit with intricate silver embroidery, off-white chiffon dupatta, and straight trousers. A statement piece for festive occasions. Available in Small and Medium.",
+      "Vibrant royal blue 3-piece suit with intricate silver embroidery, off-white chiffon dupatta, and straight trousers. A statement piece for festive occasions. Available in Medium and Large.",
   },
   {
     id: "kc-05",
@@ -86,13 +118,18 @@ const PRODUCTS = [
     season: "summer",
     fabric: "Premium Fabric",
     colors: ["Peach"],
-    sizes: ["S", "M"],
+    sizes: ["M", "L"],
     rating: 4.7,
     badge: null,
     image: IMG.dress05,
     hoverImage: IMG.dress05,
+    images: [
+      "images/dresses/kc-05/02.jpg",
+      "images/dresses/kc-05/03.jpg",
+      "images/dresses/kc-05/04.jpg",
+    ],
     description:
-      "Soft peach 3-piece suit with fine silver-white embroidery, sheer dupatta, and straight-cut trousers. Elegant and refined for formal gatherings. Available in Small and Medium.",
+      "Soft peach 3-piece suit with fine silver-white embroidery, sheer dupatta, and straight-cut trousers. Elegant and refined for formal gatherings. Available in Medium and Large.",
   },
   {
     id: "kc-06",
@@ -103,13 +140,19 @@ const PRODUCTS = [
     season: "summer",
     fabric: "Premium Fabric",
     colors: ["Grey", "Lilac"],
-    sizes: ["S", "M"],
+    sizes: ["M", "L"],
     rating: 4.8,
     badge: null,
     image: IMG.dress06,
     hoverImage: IMG.dress06,
+    images: [
+      "images/dresses/kc-06/02.jpg",
+      "images/dresses/kc-06/03.jpg",
+      "images/dresses/kc-06/04.jpg",
+      "images/dresses/kc-06/05.jpg",
+    ],
     description:
-      "Sophisticated grey-lilac 3-piece suit with multi-toned floral embroidery, sheer dupatta, and embroidered trouser borders. Available in Small and Medium.",
+      "Sophisticated grey-lilac 3-piece suit with multi-toned floral embroidery, sheer dupatta, and embroidered trouser borders. Available in Medium and Large.",
   },
   {
     id: "kc-07",
@@ -120,42 +163,28 @@ const PRODUCTS = [
     season: "summer",
     fabric: "Premium Fabric",
     colors: ["Coral"],
-    sizes: ["S", "M"],
+    sizes: ["M", "L"],
     rating: 5,
     badge: "New",
     image: IMG.dress07,
     hoverImage: IMG.dress07,
+    images: [
+      "images/dresses/kc-07/02.jpg",
+      "images/dresses/kc-07/03.jpg",
+      "images/dresses/kc-07/04.jpg",
+      "images/dresses/kc-07/05.jpg",
+    ],
     description:
-      "Vibrant coral red 3-piece Pakistani suit with gold embroidery, matching dupatta with gold border, and traditional khussa-ready styling. Available in Small and Medium.",
+      "Vibrant coral red 3-piece Pakistani suit with gold embroidery, matching dupatta with gold border, and traditional khussa-ready styling. Available in Medium and Large.",
   },
 ];
 
 const CATEGORIES = [
-  {
-    id: "stitched",
-    name: "Stitched",
-    image: IMG.dress01,
-  },
-  {
-    id: "partywear",
-    name: "Party Wear",
-    image: IMG.dress04,
-  },
-  {
-    id: "unstitched",
-    name: "Unstitched",
-    image: IMG.dress03,
-  },
-  {
-    id: "summer",
-    name: "Summer",
-    image: IMG.dress03,
-  },
-  {
-    id: "winter",
-    name: "Winter",
-    image: IMG.dress06,
-  },
+  { id: "stitched", name: "Stitched", image: IMG.dress01 },
+  { id: "partywear", name: "Party Wear", image: IMG.dress04 },
+  { id: "unstitched", name: "Unstitched", image: IMG.dress03 },
+  { id: "summer", name: "Summer", image: IMG.dress03 },
+  { id: "winter", name: "Winter", image: IMG.dress06 },
 ];
 
 function formatPKR(amount) {
@@ -164,4 +193,12 @@ function formatPKR(amount) {
 
 function getProductById(id) {
   return PRODUCTS.find((p) => p.id === id);
+}
+
+/** Detail-page gallery: model/hero shot first, then same-dress photo angles. */
+function getProductImages(product) {
+  const angles = product.images?.length ? product.images : [];
+  if (!product.image) return angles;
+  // Slide 1 = listing model shot; slides 2+ = actual photos of the same dress (kc-XX folder)
+  return [product.image, ...angles];
 }

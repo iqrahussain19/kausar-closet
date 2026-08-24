@@ -94,12 +94,13 @@ function seoOrganizationSchema() {
 }
 
 function seoProductSchema(product) {
+  const gallery = getProductImages(product);
   return {
     "@context": "https://schema.org",
     "@type": "Product",
     name: product.name,
     description: product.description,
-    image: seoAbsoluteUrl(product.image),
+    image: gallery.length ? gallery.map(seoAbsoluteUrl) : seoAbsoluteUrl(product.image),
     sku: product.id,
     brand: { "@type": "Brand", name: SEO_CONFIG.siteName },
     category: product.category,
@@ -139,7 +140,7 @@ function seoApplyProductPage(product) {
   seoUpdatePage({
     title: `${product.name} | ${SEO_CONFIG.siteName}`,
     description: `${product.description.slice(0, 155)}… Buy online at Kausar Closet with nationwide delivery.`,
-    image: product.image,
+    image: getProductImages(product)[0] || product.image,
     path: `product.html?id=${product.id}`,
     type: "product",
   });

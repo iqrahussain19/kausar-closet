@@ -225,17 +225,7 @@ function renderProductPage() {
   }
 
   root.innerHTML = `
-    <div class="product-gallery">
-      <img src="${product.image}" alt="${product.name} — Kausar Closet" id="product-main-image" />
-      <div class="product-thumbs">
-        <button type="button" class="is-active" data-thumb="${product.image}">
-          <img src="${product.image}" alt="${product.name} front view" />
-        </button>
-        <button type="button" data-thumb="${product.hoverImage}">
-          <img src="${product.hoverImage}" alt="${product.name} alternate view" />
-        </button>
-      </div>
-    </div>
+    <div class="product-gallery" data-product-gallery></div>
     <div class="product-detail-info">
       ${product.badge ? `<p class="eyebrow">${product.badge}</p>` : ""}
       <h1>${product.name}</h1>
@@ -276,14 +266,11 @@ function renderProductPage() {
     </div>
   `;
 
-  const mainImage = root.querySelector("#product-main-image");
-  root.querySelectorAll("[data-thumb]").forEach((btn) => {
-    btn.addEventListener("click", () => {
-      root.querySelectorAll("[data-thumb]").forEach((b) => b.classList.remove("is-active"));
-      btn.classList.add("is-active");
-      if (mainImage) mainImage.src = btn.dataset.thumb;
-    });
-  });
+  const galleryRoot = root.querySelector("[data-product-gallery]");
+  const galleryImages = getProductImages(product);
+  if (typeof initProductGallery === "function") {
+    initProductGallery(galleryRoot, galleryImages, product.name);
+  }
 
   const qtyInput = root.querySelector("#qty");
   root.querySelector("[data-detail-minus]")?.addEventListener("click", () => {
