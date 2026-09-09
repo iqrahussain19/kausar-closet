@@ -1,12 +1,12 @@
 /** Listing placeholders — keep these PNGs in shop/home thumbnails */
 const IMG = {
-  dress01: "images/dresses/openart-gpt-image-2-edit-1_1781247168605_93f8f8d8-4ba07b5d-21bb-4611-be1c-ada21c6b756f.png",
-  dress02: "images/dresses/openart-gpt-image-2-edit-1_1781247405779_ece7c809-76edd102-9fc7-47de-b221-4cb760f523ff.png",
-  dress03: "images/dresses/ChatGPT_Image_Jun_12__2026__12_09_13_PM-4ccfb192-ed23-46f2-8f4c-86222f01ee28.png",
-  dress04: "images/dresses/ChatGPT_Image_Jun_12__2026__12_15_43_PM-2d83cd5f-b2a1-4560-ad43-c1e8fb4c5774.png",
-  dress05: "images/dresses/ChatGPT_Image_Jun_12__2026__12_18_59_PM-d9ed36e4-d057-4223-8200-35a41bc79ed8.png",
-  dress06: "images/dresses/ChatGPT_Image_Jun_12__2026__12_21_53_PM-acbcbb9b-b437-4c44-b190-1f8b310de6d7.png",
-  dress07: "images/dresses/Gemini_Generated_Image_ppmfowppmfowppmf-2f299308-337a-46da-9046-ed47f07273a7.png",
+  dress01: "images/dresses/dress-01.png",
+  dress02: "images/dresses/dress-02.png",
+  dress03: "images/dresses/dress-03.png",
+  dress04: "images/dresses/dress-04.png",
+  dress05: "images/dresses/dress-05.png",
+  dress06: "images/dresses/dress-06.png",
+  dress07: "images/dresses/dress-07.png",
 };
 
 /** Actual product photos for detail-page gallery only: images/dresses/kc-XX/01.jpg … */
@@ -29,9 +29,9 @@ const PRODUCTS = [
     sizes: ["M", "L"],
     rating: 4.9,
     badge: "New",
-    image: "images/Blue 1.jpeg",
-    hoverImage: "images/Blue 2.jpeg",
-    images: ["images/Blue 2.jpeg"],
+    image: "images/teal-01.jpg",
+    hoverImage: "images/teal-02.jpg",
+    images: ["images/teal-02.jpg"],
     description:
       "Digital printed premium lawn 3-piece suit with lace and pearl embellished neckline, floral placement design, chiffon dupatta, and straight trouser. Available in Medium and Large.",
   },
@@ -184,11 +184,11 @@ const PRODUCTS = [
     sizes: ["M", "L"],
     rating: 4.9,
     badge: "New",
-    image: "images/dresses/kc-08/03.jpg",
-    hoverImage: "images/dresses/kc-08/01.jpg",
+    image: "images/party-saree-01.jpg",
+    hoverImage: "images/party-saree-02.jpg",
     images: [
-      "images/dresses/kc-08/01.jpg",
-      "images/dresses/kc-08/02.jpg",
+      "images/party-saree-02.jpg",
+      "images/party-saree-03.jpg",
     ],
     description:
       "Elegant dusty blue party wear saree with sequinned diamond-grid net pallu, ornate scalloped silver border, and matching satin blouse. Front, side, and back poses included. Available in Medium and Large.",
@@ -205,11 +205,11 @@ const PRODUCTS = [
     sizes: ["S"],
     rating: 4.9,
     badge: "New",
-    image: "images/dresses/kc-09/01.jpg",
-    hoverImage: "images/dresses/kc-09/02.jpg",
+    image: "images/party-mauve-01.jpg",
+    hoverImage: "images/party-mauve-02.jpg",
     images: [
-      "images/dresses/kc-09/02.jpg",
-      "images/dresses/kc-09/03.jpg",
+      "images/party-mauve-02.jpg",
+      "images/party-mauve-03.jpg",
     ],
     description:
       "Dusty mauve Anarkali party wear gown with heavy gold embroidery on the bodice and hem, sheer sleeves, lattice-work dupatta, and scalloped border. Available in Small.",
@@ -226,11 +226,11 @@ const PRODUCTS = [
     sizes: ["M"],
     rating: 4.9,
     badge: "New",
-    image: "images/dresses/kc-10/01.jpg",
-    hoverImage: "images/dresses/kc-10/02.jpg",
+    image: "images/party-burgundy-01.jpg",
+    hoverImage: "images/party-burgundy-02.jpg",
     images: [
-      "images/dresses/kc-10/02.jpg",
-      "images/dresses/kc-10/03.jpg",
+      "images/party-burgundy-02.jpg",
+      "images/party-burgundy-03.jpg",
     ],
     description:
       "Deep burgundy Anarkali 3-piece party wear suit with dense antique gold embroidery on the bodice, hem, and sleeves, matching wide-leg trousers, and a sheer embroidered dupatta. Available in Medium only.",
@@ -247,11 +247,11 @@ const PRODUCTS = [
     sizes: ["S", "M", "L"],
     rating: 4.8,
     badge: "New",
-    image: "images/dresses/kc-11/01.jpg",
-    hoverImage: "images/dresses/kc-11/02.jpg",
+    image: "images/winter-purple-01.jpg",
+    hoverImage: "images/winter-purple-02.jpg",
     images: [
-      "images/dresses/kc-11/02.jpg",
-      "images/dresses/kc-11/03.jpg",
+      "images/winter-purple-02.jpg",
+      "images/winter-purple-03.jpg",
     ],
     description:
       "Plain marina 3-piece winter suit in deep purple with matching trousers and a textured mustard yellow marina shawl. Soft, warm fabric for everyday winter wear. Available in Small, Medium, and Large.",
@@ -268,11 +268,11 @@ const PRODUCTS = [
     sizes: ["S", "M", "L"],
     rating: 4.8,
     badge: "New",
-    image: "images/dresses/kc-12/01.jpg",
-    hoverImage: "images/dresses/kc-12/02.jpg",
+    image: "images/winter-blue-01.jpg",
+    hoverImage: "images/winter-blue-02.jpg",
     images: [
-      "images/dresses/kc-12/02.jpg",
-      "images/dresses/kc-12/03.jpg",
+      "images/winter-blue-02.jpg",
+      "images/winter-blue-03.jpg",
     ],
     description:
       "Plain marina blue 3-piece winter suit with shirt and flared lehnga in marina fabric, finished with a matching chiffon dupatta. Available in Small, Medium, and Large.",
@@ -281,10 +281,10 @@ const PRODUCTS = [
 
 const CATEGORIES = [
   { id: "stitched", name: "Stitched", image: IMG.dress01 },
-  { id: "partywear", name: "Party Wear", image: "images/dresses/kc-08/03.jpg" },
+  { id: "partywear", name: "Party Wear", image: "images/party-saree-01.jpg" },
   { id: "unstitched", name: "Unstitched", image: IMG.dress03 },
   { id: "summer", name: "Summer", image: IMG.dress03 },
-  { id: "winter", name: "Winter", image: "images/dresses/kc-11/01.jpg" },
+  { id: "winter", name: "Winter", image: "images/winter-purple-01.jpg" },
 ];
 
 function formatPKR(amount) {

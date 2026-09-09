@@ -973,11 +973,18 @@ h3,
   width: 100%;
   height: 100%;
   object-fit: cover;
+  opacity: 1;
   transition: opacity 0.5s var(--ease), transform 0.8s var(--ease);
+}
+
+.product-img.primary {
+  opacity: 1;
+  z-index: 1;
 }
 
 .product-img.secondary {
   opacity: 0;
+  z-index: 0;
 }
 
 .product-media:hover .primary {
@@ -1047,7 +1054,7 @@ h3,
   color: #fff;
   background:
     linear-gradient(120deg, rgba(184, 146, 79, 0.95), rgba(212, 175, 106, 0.88)),
-    url("images/dresses/Gemini_Generated_Image_ppmfowppmfowppmf-2f299308-337a-46da-9046-ed47f07273a7.png") center/cover;
+    url("images/dresses/dress-07.png") center/cover;
 }
 
 .promo-rich {
@@ -2009,6 +2016,14 @@ h3,
 .reveal.is-visible {
   opacity: 1;
   transform: translateY(0);
+}
+
+/* Product & category tiles must stay visible even if reveal JS is late */
+.product-card.reveal,
+.category-tile.reveal,
+.lookbook-item.reveal {
+  opacity: 1;
+  transform: none;
 }
 
 /* Safety: never leave the site blank if JS fails to mark reveals visible */

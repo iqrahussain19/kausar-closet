@@ -14,7 +14,7 @@ document.addEventListener("DOMContentLoaded", () => {
     document.querySelectorAll(".reveal:not(.is-visible)").forEach((el) => {
       el.classList.add("is-visible");
     });
-  }, 1200);
+  }, 400);
 });
 
 function initHeader() {
@@ -162,8 +162,8 @@ function renderHomeCollections() {
 
   root.innerHTML = CATEGORIES.map(
     (cat) => `
-      <a class="category-tile reveal" href="shop.html?category=${cat.id}">
-        <img src="${cat.image}" alt="${cat.name} collection" loading="lazy" />
+      <a class="category-tile reveal is-visible" href="shop.html?category=${cat.id}">
+        <img src="${cat.image}" alt="${cat.name} collection" loading="lazy" onerror="this.onerror=null;this.src='images/dresses/dress-01.png';" />
         <div class="category-copy">
           <span class="category-label">${cat.name}</span>
           <span class="category-cta">Shop now</span>
@@ -180,10 +180,10 @@ function createProductCard(product) {
       : null;
 
   return `
-    <article class="product-card reveal">
+    <article class="product-card reveal is-visible">
       <a class="product-media" href="product.html?id=${product.id}">
-        <img class="product-img primary" src="${product.image}" alt="${product.name} — Pakistani women's dress by Kausar Closet" loading="lazy" />
-        <img class="product-img secondary" src="${product.hoverImage}" alt="" loading="lazy" />
+        <img class="product-img primary" src="${product.image}" alt="${product.name} — Pakistani women's dress by Kausar Closet" loading="lazy" onerror="this.onerror=null;this.src='images/dresses/dress-01.png';" />
+        <img class="product-img secondary" src="${product.hoverImage || product.image}" alt="" loading="lazy" onerror="this.style.display='none';" />
         ${product.badge ? `<span class="product-badge">${product.badge}</span>` : ""}
         ${discount ? `<span class="product-discount">-${discount}%</span>` : ""}
       </a>
