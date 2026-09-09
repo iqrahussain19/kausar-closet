@@ -5,6 +5,8 @@ const WHATSAPP_NUMBER = "923218581875";
 const JAZZCASH_NUMBER = "03218581875";
 const EASYPAISA_NUMBER = "03218581875";
 const ORDER_EMAIL = "kausarcloset343@gmail.com";
+/** FormSubmit form hash (from activation email) — use this instead of the naked email */
+const FORMSUBMIT_ID = "8dbb1073d5a18f05b38eec6acf0e0633";
 
 const PAYMENT_LABELS = {
   cod: "Cash on Delivery",
@@ -233,6 +235,7 @@ function renderCheckoutPage() {
 
   form?.addEventListener("submit", (event) => {
     event.preventDefault();
+    event.stopPropagation();
     handleCheckoutSubmit(form);
   });
 }
@@ -309,6 +312,9 @@ async function sendOrderEmail(order) {
 }
 
 async function handleCheckoutSubmit(form) {
+  if (form.dataset.submitting === "1") return;
+  form.dataset.submitting = "1";
+
   const data = new FormData(form);
   const fullName = String(data.get("fullName") || "").trim();
   const phone = String(data.get("phone") || "").trim();
@@ -320,22 +326,26 @@ async function handleCheckoutSubmit(form) {
   const submitBtn = form.querySelector("[data-place-order]");
 
   if (!fullName || !phone || !email || !city || !address) {
+    form.dataset.submitting = "0";
     showToast("Please fill all required fields");
     return;
   }
 
   if (!/^0?3\d{9}$/.test(phone.replace(/[\s-]/g, ""))) {
+    form.dataset.submitting = "0";
     showToast("Enter a valid Pakistani mobile number");
     return;
   }
 
   if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+    form.dataset.submitting = "0";
     showToast("Enter a valid email address");
     return;
   }
 
   const items = getCartLines();
   if (!items.length) {
+    form.dataset.submitting = "0";
     showToast("Your bag is empty");
     return;
   }
@@ -378,9 +388,10 @@ async function handleCheckoutSubmit(form) {
     openWhatsAppOrder(order);
   }
 
-  window.location.href = `checkout.html?success=1&order=${encodeURIComponent(order.id)}&email=${
-    order.emailSent ? "1" : "0"
-  }`;
+  // replace() avoids reload/back-button resubmit loops
+  window.location.replace(
+    `checkout.html?success=1&order=${encodeURIComponent(order.id)}&email=${order.emailSent ? "1" : "0"}`,
+  );
 }
 
 function renderCheckoutSuccess(root) {

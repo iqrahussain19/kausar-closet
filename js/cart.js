@@ -116,19 +116,40 @@ function renderCartPage() {
     })
     .join("");
 
+  const total = getCartTotal();
+  const shippingLabel = total >= 10000 ? "Free" : "From Rs. 250";
+
   root.innerHTML = `
     <div class="cart-layout">
       <div class="cart-list">${rows}</div>
       <aside class="cart-summary">
         <h2>Order summary</h2>
-        <div class="summary-row"><span>Subtotal</span><span>${formatPKR(getCartTotal())}</span></div>
-        <div class="summary-row"><span>Shipping</span><span>From Rs. 250</span></div>
-        <div class="summary-row total"><span>Total</span><span>${formatPKR(getCartTotal())}</span></div>
-        <a class="btn btn-primary btn-block" href="checkout.html">Proceed to checkout</a>
+        <div class="summary-row"><span>Subtotal</span><span>${formatPKR(total)}</span></div>
+        <div class="summary-row"><span>Shipping</span><span>${shippingLabel}</span></div>
+        <div class="summary-row total"><span>Total</span><span>${formatPKR(total)}</span></div>
+        <a class="btn btn-primary btn-block" href="checkout.html" data-proceed-checkout>Proceed to checkout</a>
         <a class="text-link" href="shop.html">Continue shopping</a>
       </aside>
     </div>
+    <div class="sticky-checkout" data-sticky-checkout>
+      <div class="sticky-checkout-info">
+        <span>Total</span>
+        <strong>${formatPKR(total)}</strong>
+      </div>
+      <a class="btn btn-primary" href="checkout.html" data-proceed-checkout>Proceed to checkout</a>
+    </div>
   `;
+
+  root.querySelectorAll("[data-proceed-checkout]").forEach((btn) => {
+    btn.addEventListener("click", (event) => {
+      if (!getCart().length) {
+        event.preventDefault();
+        showToast("Your bag is empty");
+      }
+      // Let the normal <a href="checkout.html"> navigation happen once.
+      // Do not set window.location here — that caused reload loops.
+    });
+  });
 
   root.querySelectorAll(".cart-row").forEach((row) => {
     const id = row.dataset.id;

@@ -9,7 +9,7 @@ const IMG = {
   dress07: "images/dresses/Gemini_Generated_Image_ppmfowppmfowppmf-2f299308-337a-46da-9046-ed47f07273a7.png",
 };
 
-/** Actual product photos for detail-page gallery only: images/dresses/kc-01/01.jpg … */
+/** Actual product photos for detail-page gallery only: images/dresses/kc-XX/01.jpg … */
 function dressGallery(productId, imageCount) {
   return Array.from({ length: imageCount }, (_, i) =>
     `images/dresses/${productId}/${String(i + 1).padStart(2, "0")}.jpg`
@@ -20,7 +20,7 @@ const PRODUCTS = [
   {
     id: "kc-01",
     name: "Teal Digital Printed Lawn 3-Piece",
-    price: 7550,
+    price: 8550,
     oldPrice: null,
     category: "stitched",
     season: "summer",
@@ -29,14 +29,9 @@ const PRODUCTS = [
     sizes: ["M", "L"],
     rating: 4.9,
     badge: "New",
-    image: IMG.dress01,
-    hoverImage: IMG.dress01,
-    images: [
-      "images/dresses/kc-01/02.jpg",
-      "images/dresses/kc-01/03.jpg",
-      "images/dresses/kc-01/04.jpg",
-      "images/dresses/kc-01/05.jpg",
-    ],
+    image: "images/Blue 1.jpeg",
+    hoverImage: "images/Blue 2.jpeg",
+    images: ["images/Blue 2.jpeg"],
     description:
       "Digital printed premium lawn 3-piece suit with lace and pearl embellished neckline, floral placement design, chiffon dupatta, and straight trouser. Available in Medium and Large.",
   },
@@ -177,14 +172,119 @@ const PRODUCTS = [
     description:
       "Vibrant coral red 3-piece Pakistani suit with gold embroidery, matching dupatta with gold border, and traditional khussa-ready styling. Available in Medium and Large.",
   },
+  {
+    id: "kc-08",
+    name: "Dusty Blue Sequinned Party Wear Saree",
+    price: 8999,
+    oldPrice: null,
+    category: "partywear",
+    season: "summer",
+    fabric: "Net & Satin",
+    colors: ["Dusty Blue", "Silver"],
+    sizes: ["M", "L"],
+    rating: 4.9,
+    badge: "New",
+    image: "images/dresses/kc-08/03.jpg",
+    hoverImage: "images/dresses/kc-08/01.jpg",
+    images: [
+      "images/dresses/kc-08/01.jpg",
+      "images/dresses/kc-08/02.jpg",
+    ],
+    description:
+      "Elegant dusty blue party wear saree with sequinned diamond-grid net pallu, ornate scalloped silver border, and matching satin blouse. Front, side, and back poses included. Available in Medium and Large.",
+  },
+  {
+    id: "kc-09",
+    name: "Mauve Gold Embroidered Party Wear Gown",
+    price: 8550,
+    oldPrice: null,
+    category: "partywear",
+    season: "summer",
+    fabric: "Net",
+    colors: ["Mauve", "Gold"],
+    sizes: ["S"],
+    rating: 4.9,
+    badge: "New",
+    image: "images/dresses/kc-09/01.jpg",
+    hoverImage: "images/dresses/kc-09/02.jpg",
+    images: [
+      "images/dresses/kc-09/02.jpg",
+      "images/dresses/kc-09/03.jpg",
+    ],
+    description:
+      "Dusty mauve Anarkali party wear gown with heavy gold embroidery on the bodice and hem, sheer sleeves, lattice-work dupatta, and scalloped border. Available in Small.",
+  },
+  {
+    id: "kc-10",
+    name: "Burgundy Gold Embroidered Party Wear Suit",
+    price: 8550,
+    oldPrice: null,
+    category: "partywear",
+    season: "summer",
+    fabric: "Net & Chiffon",
+    colors: ["Burgundy", "Gold"],
+    sizes: ["M"],
+    rating: 4.9,
+    badge: "New",
+    image: "images/dresses/kc-10/01.jpg",
+    hoverImage: "images/dresses/kc-10/02.jpg",
+    images: [
+      "images/dresses/kc-10/02.jpg",
+      "images/dresses/kc-10/03.jpg",
+    ],
+    description:
+      "Deep burgundy Anarkali 3-piece party wear suit with dense antique gold embroidery on the bodice, hem, and sleeves, matching wide-leg trousers, and a sheer embroidered dupatta. Available in Medium only.",
+  },
+  {
+    id: "kc-11",
+    name: "Plain Marina 3-Piece Suit with Yellow Shawl",
+    price: 11999,
+    oldPrice: null,
+    category: "stitched",
+    season: "winter",
+    fabric: "Marina",
+    colors: ["Purple", "Mustard Yellow"],
+    sizes: ["S", "M", "L"],
+    rating: 4.8,
+    badge: "New",
+    image: "images/dresses/kc-11/01.jpg",
+    hoverImage: "images/dresses/kc-11/02.jpg",
+    images: [
+      "images/dresses/kc-11/02.jpg",
+      "images/dresses/kc-11/03.jpg",
+    ],
+    description:
+      "Plain marina 3-piece winter suit in deep purple with matching trousers and a textured mustard yellow marina shawl. Soft, warm fabric for everyday winter wear. Available in Small, Medium, and Large.",
+  },
+  {
+    id: "kc-12",
+    name: "Plain Marina Blue Suit with Lehnga & Chiffon Dupatta",
+    price: 9999,
+    oldPrice: null,
+    category: "stitched",
+    season: "winter",
+    fabric: "Marina & Chiffon",
+    colors: ["Navy Blue"],
+    sizes: ["S", "M", "L"],
+    rating: 4.8,
+    badge: "New",
+    image: "images/dresses/kc-12/01.jpg",
+    hoverImage: "images/dresses/kc-12/02.jpg",
+    images: [
+      "images/dresses/kc-12/02.jpg",
+      "images/dresses/kc-12/03.jpg",
+    ],
+    description:
+      "Plain marina blue 3-piece winter suit with shirt and flared lehnga in marina fabric, finished with a matching chiffon dupatta. Available in Small, Medium, and Large.",
+  },
 ];
 
 const CATEGORIES = [
   { id: "stitched", name: "Stitched", image: IMG.dress01 },
-  { id: "partywear", name: "Party Wear", image: IMG.dress04 },
+  { id: "partywear", name: "Party Wear", image: "images/dresses/kc-08/03.jpg" },
   { id: "unstitched", name: "Unstitched", image: IMG.dress03 },
   { id: "summer", name: "Summer", image: IMG.dress03 },
-  { id: "winter", name: "Winter", image: IMG.dress06 },
+  { id: "winter", name: "Winter", image: "images/dresses/kc-11/01.jpg" },
 ];
 
 function formatPKR(amount) {

@@ -8,6 +8,13 @@ document.addEventListener("DOMContentLoaded", () => {
   renderCartPage();
   initContactForm();
   initReveal();
+
+  // Fallback so product cards / sections never stay invisible
+  window.setTimeout(() => {
+    document.querySelectorAll(".reveal:not(.is-visible)").forEach((el) => {
+      el.classList.add("is-visible");
+    });
+  }, 1200);
 });
 
 function initHeader() {
