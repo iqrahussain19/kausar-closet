@@ -82,7 +82,7 @@ function renderCartPage() {
   if (!cart.length) {
     root.innerHTML = `
       <div class="empty-state">
-        <h2>Your bag is empty</h2>
+        <h2>Your cart is empty</h2>
         <p>Discover soft stitched and unstitched pieces for your everyday glow.</p>
         <a class="btn btn-primary" href="shop.html">Shop the closet</a>
       </div>

@@ -276,15 +276,21 @@ function buildEmailBody(order) {
 }
 
 async function sendOrderEmail(order) {
+  if (window.location.protocol === "file:") {
+    throw new Error("Open with Live Server (http://127.0.0.1:5500) — email does not work from file://");
+  }
+
   const payload = {
     _subject: `New Kausar Closet Order ${order.id}`,
     _template: "table",
     _captcha: "false",
+    _replyto: order.customer.email,
     name: order.customer.name,
     email: order.customer.email,
     phone: order.customer.phone,
     city: order.customer.city,
     address: order.customer.address,
+    notes: order.customer.notes || "—",
     payment: PAYMENT_LABELS[order.paymentMethod] || order.paymentMethod,
     order_id: order.id,
     subtotal: formatPKR(order.subtotal),
@@ -293,22 +299,42 @@ async function sendOrderEmail(order) {
     message: buildEmailBody(order),
   };
 
-  const response = await fetch(`https://formsubmit.co/ajax/${ORDER_EMAIL}`, {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-      Accept: "application/json",
-    },
-    body: JSON.stringify(payload),
-  });
+  const endpoints = [
+    `https://formsubmit.co/ajax/${FORMSUBMIT_ID}`,
+    `https://formsubmit.co/ajax/${ORDER_EMAIL}`,
+  ];
 
-  const result = await response.json().catch(() => ({}));
+  let lastError = new Error("Email failed to send");
 
-  if (!response.ok) {
-    throw new Error(result.message || "Email failed to send");
+  for (const url of endpoints) {
+    try {
+      const body = new FormData();
+      Object.entries(payload).forEach(([key, value]) => {
+        body.append(key, String(value ?? ""));
+      });
+
+      const response = await fetch(url, {
+        method: "POST",
+        headers: { Accept: "application/json" },
+        body,
+      });
+
+      const result = await response.json().catch(() => ({}));
+      const message = String(result.message || "");
+      const ok =
+        response.ok &&
+        (result.success === true || result.success === "true") &&
+        !/activation|activate form|html files/i.test(message);
+
+      if (ok) return result;
+
+      lastError = new Error(message || "Email failed to send");
+    } catch (error) {
+      lastError = error instanceof Error ? error : new Error("Email failed to send");
+    }
   }
 
-  return result;
+  throw lastError;
 }
 
 async function handleCheckoutSubmit(form) {
@@ -350,6 +376,12 @@ async function handleCheckoutSubmit(form) {
     return;
   }
 
+  if (window.location.protocol === "file:") {
+    form.dataset.submitting = "0";
+    showToast("Open with Live Server: http://127.0.0.1:5500");
+    return;
+  }
+
   const subtotal = getCartTotal();
   const shipping = getShippingFee(subtotal);
   const order = {
@@ -367,31 +399,28 @@ async function handleCheckoutSubmit(form) {
 
   if (submitBtn) {
     submitBtn.disabled = true;
-    submitBtn.textContent = "Sending order…";
+    submitBtn.textContent = "Sending to email…";
   }
 
   try {
     await sendOrderEmail(order);
     order.emailSent = true;
-    showToast("Order emailed to Kausar Closet");
+    saveOrder(order);
+    saveCart([]);
+    updateCartCount();
+    showToast("Order sent to email");
+    window.location.replace(
+      `checkout.html?success=1&order=${encodeURIComponent(order.id)}&email=1`,
+    );
   } catch (error) {
     console.error(error);
-    order.emailSent = false;
-    showToast("Order saved — activate FormSubmit email if needed");
+    form.dataset.submitting = "0";
+    if (submitBtn) {
+      submitBtn.disabled = false;
+      submitBtn.textContent = "Place order";
+    }
+    showToast(error?.message || "Email failed — use Live Server and try again");
   }
-
-  saveOrder(order);
-  saveCart([]);
-  updateCartCount();
-
-  if (paymentMethod === "whatsapp" || paymentMethod === "jazzcash" || paymentMethod === "easypaisa" || !order.emailSent) {
-    openWhatsAppOrder(order);
-  }
-
-  // replace() avoids reload/back-button resubmit loops
-  window.location.replace(
-    `checkout.html?success=1&order=${encodeURIComponent(order.id)}&email=${order.emailSent ? "1" : "0"}`,
-  );
 }
 
 function renderCheckoutSuccess(root) {
@@ -409,12 +438,12 @@ function renderCheckoutSuccess(root) {
   const payment = order?.paymentMethod || "cod";
   const paymentHint =
     payment === "jazzcash"
-      ? `Please send ${formatPKR(order.total)} via JazzCash to ${JAZZCASH_NUMBER} and share the screenshot on WhatsApp.`
+      ? `Please send ${formatPKR(order.total)} via JazzCash to ${JAZZCASH_NUMBER} and email the screenshot to ${ORDER_EMAIL}.`
       : payment === "easypaisa"
-        ? `Please send ${formatPKR(order.total)} via EasyPaisa to ${EASYPAISA_NUMBER} and share the screenshot on WhatsApp.`
+        ? `Please send ${formatPKR(order.total)} via EasyPaisa to ${EASYPAISA_NUMBER} and email the screenshot to ${ORDER_EMAIL}.`
         : payment === "whatsapp"
-          ? "Your order details were sent to WhatsApp. Our team will confirm shortly."
-          : "Your COD order is placed. We’ll call/WhatsApp you to confirm delivery.";
+          ? "Your order was emailed to Kausar Closet. Our team will confirm shortly."
+          : "Your COD order is placed and emailed to Kausar Closet. We’ll confirm delivery soon.";
 
   root.innerHTML = `
     <div class="checkout-success">
@@ -425,8 +454,8 @@ function renderCheckoutSuccess(root) {
       <p class="email-status ${emailOk ? "is-ok" : "is-warn"}">
         ${
           emailOk
-            ? `Order details were sent to <strong>${ORDER_EMAIL}</strong>.`
-            : `Important: open <strong>${ORDER_EMAIL}</strong> inbox/spam and click the FormSubmit activation link, then place one more test order.`
+            ? `Order details were sent to <strong>${ORDER_EMAIL}</strong>. Please check Inbox, Spam, and Promotions.`
+            : `If you don’t see the order email yet, check <strong>${ORDER_EMAIL}</strong> Spam/Promotions for a FormSubmit “Activate Form” link — click it once, then place a test order again.`
         }
       </p>
       ${
@@ -441,10 +470,8 @@ function renderCheckoutSuccess(root) {
           : ""
       }
       <div class="success-actions">
-        <a class="btn btn-primary" href="https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(
-          `Hi Kausar Closet, I placed order ${orderId}`
-        )}" target="_blank" rel="noopener noreferrer">Message on WhatsApp</a>
-        <a class="btn btn-ghost" href="shop.html">Continue shopping</a>
+        <a class="btn btn-primary" href="shop.html">Continue shopping</a>
+        <a class="btn btn-ghost" href="mailto:${ORDER_EMAIL}?subject=${encodeURIComponent(`Order ${orderId}`)}">Email us</a>
       </div>
     </div>
   `;
